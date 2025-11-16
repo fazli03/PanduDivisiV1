@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz - Pandu Divisi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="pdquiz.css" />
+  </head>
+  <body>
+    <div id="space"></div>
+
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="pdhome.html"
+            ><img src="assets/images/Logo.png" alt="Logo"
+          /></a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="quiz-container">
+        <div class="quiz-screen" id="quiz-start-screen">
+          <h1>
+            Quiz Kategori:
+            <span id="quiz-category-title"></span>
+          </h1>
+          <p id="quiz-category-description">
+            Jawab pertanyaan berikut untuk menemukan divisi yang paling cocok
+            dengan passion dan skill Anda.
+          </p>
+          <div class="box-btn">
+            <a href="pdhome.html" class="cta-button secondary"
+              >Kembali ke Home</a
+            >
+
+            <button class="cta-button" id="start-quiz-btn">Mulai Quiz</button>
+          </div>
+        </div>
+
+        <div class="quiz-screen hidden" id="quiz-active-screen">
+          <div class="quiz-header">
+            <div class="quiz-status">
+              <div id="question-count">Pertanyaan 1 dari 5</div>
+              <div id="quiz-timer">05:00</div>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="progress-bar"></div>
+            </div>
+          </div>
+
+          <h2 id="question-text">Pertanyaan akan dimuat di sini...</h2>
+
+          <div class="answer-options" id="answer-options-container"></div>
+        </div>
+
+        <div class="quiz-screen hidden" id="quiz-results-screen">
+          <h2>Hasil Rekomendasi Anda</h2>
+          <div class="primary-result">
+            <div class="result-score" id="result-score">85%</div>
+            <h3 class="result-division" id="result-division">UI/UX Designer</h3>
+            <p id="result-description">
+              Deskripsi singkat mengapa Anda cocok dengan divisi ini.
+            </p>
+          </div>
+
+          <div class="secondary-results">
+            <h4>Kecocokan Lainnya:</h4>
+            <ul id="secondary-results-list"></ul>
+          </div>
+
+          <div class="box-btn" id="box-btn-finish">
+            <a href="" class="cta-button secondary">Ulangi Quiz</a>
+            <a href="pdhome.html" class="cta-button">Kembali ke Home</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="pdquiz.js"></script>
+  </body>
+</html>

@@ -1,0 +1,565 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+  background: #000;
+  color: #fff;
+}
+
+/* Space Background Animation */
+#space {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1),
+    0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 8px rgba(255, 255, 255, 1);
+  animation: shoot 3s ease-out infinite;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-200px) translateY(200px);
+    opacity: 0;
+  }
+}
+
+/* Content Container */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  padding: 10px;
+  margin-top: 30px;
+}
+.logo-vinix img {
+  height: 40px; /* Atur tingginya agar rapi, lebar akan ikut otomatis */
+  width: auto;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 0 60px;
+}
+
+.logo-pd img {
+  width: 235px;
+  height: 235px;
+}
+.hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #b8b8b8;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Why Us Section */
+.why-us {
+  padding: 60px 0;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.why-us h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px; /* Sedikit beda dari .steps h2 */
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.why-us-subtitle {
+  /* Style mirip dengan .categories-subtitle */
+  text-align: center;
+  color: #b8b8b8;
+  margin-bottom: 50px;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Steps Section */
+.steps {
+  padding: 60px 0;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.steps h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 auto 20px;
+}
+
+.step-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.step-card p {
+  color: #b8b8b8;
+  line-height: 1.6;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  padding: 18px 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+.cta-center {
+  text-align: center;
+}
+
+/* Categories Section */
+.categories {
+  padding: 80px 0;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.categories h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.categories-subtitle {
+  text-align: center;
+  color: #b8b8b8;
+  margin-bottom: 50px;
+  font-size: 18px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.category-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 35px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+  border-color: rgba(102, 126, 234, 0.5);
+}
+
+.category-card h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.category-card p {
+  color: #b8b8b8;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  padding: 8px 16px;
+  background: rgba(102, 126, 234, 0.2);
+  border: 1px solid rgba(102, 126, 234, 0.4);
+  border-radius: 20px;
+  font-size: 13px;
+  color: #a8b6ff;
+}
+
+.divisi-list {
+  margin-bottom: 25px;
+}
+
+.divisi-list h4 {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.divisi-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.divisi-item {
+  color: #ccc;
+  font-size: 15px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.divisi-item::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+}
+
+.category-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.category-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* divisi Section */
+.divisi-section {
+  padding: 80px 0;
+  background: radial-gradient(ellipse at 50% 50%, #1b2735 0%, #090a0f 80%);
+}
+
+.divisi-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  /* Gunakan .container yang sudah ada */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.divisi-content {
+  flex: 1; /* Ambil 1 bagian */
+}
+
+.divisi-content h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.divisi-content p {
+  font-size: 18px;
+  color: #b8b8b8; /* Warna p yang sudah ada */
+  line-height: 1.6;
+  max-width: 450px;
+  margin-bottom: 30px;
+}
+
+.divisi-cta {
+  display: flex;
+  gap: 15px;
+}
+
+/* Style Tombol Secondary (baru) 
+  Ini untuk "Karya Students"
+*/
+.cta-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  box-shadow: none; /* Hilangkan shadow ungu */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px); /* Samakan hover effect */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Testimoni Kanan 
+*/
+.divisi-grid {
+  flex: 1.2; /* Ambil 1.2 bagian (sedikit lebih lebar) */
+  display: flex;
+  gap: 20px;
+
+  /* Ini adalah 'jendela' untuk scrolling */
+  height: 500px; /* Tentukan tinggi agar bisa di-scroll */
+  overflow: hidden;
+  position: relative;
+
+  /* Efek FADE (atas & bawah) agar scrolling terlihat mulus */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grid-column:hover {
+  animation-play-state: paused !important;
+}
+
+.divisi-card {
+  background: #ffffff;
+  color: #1e293b; /* Teks gelap */
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 280px;
+}
+
+.divisi-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.divisi-card .divisi-profile {
+  display: flex;
+  align-items: center;
+}
+.divisi-card .divisi-profile img {
+  width: 235px;
+  height: 130px;
+  margin-right: 12px;
+  padding: auto;
+  border-radius: 10%;
+  border: none;
+}
+
+/* Pastikan @keyframes ini ada */
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Pastikan class ini ada */
+.scroll-down {
+  animation: scrollDown 20s linear infinite;
+}
+
+.scroll-up {
+  animation: scrollUp 20s linear infinite;
+}
+
+/* Pastikan ada :hover untuk pause */
+.grid-column:hover {
+  animation-play-state: paused !important;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 0;
+  color: #666;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .steps h2,
+  .categories h2 {
+    font-size: 28px;
+  }
+
+  .categories-grid,
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+}
